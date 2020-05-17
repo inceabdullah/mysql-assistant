@@ -1,10 +1,17 @@
-const connection = require('./DBconnector');
+//const connection = require('./DBconnector');
+const mysql   = require('mysql');
+const Creadential = require('./DBcredential.json');
+
 module.exports = (query) => {
     return new Promise(resolve => {
+        const connection = mysql.createConnection(Creadential);
         connection.connect(function(err) {
             if (err) {
                 console.error('Error connecting: ' + err);
-                resolve(false);
+                resolve({
+                    result: false,
+                    connection: connection
+                });
             }
         
             console.log('Connected');
@@ -14,9 +21,12 @@ module.exports = (query) => {
                 resolve(false);
                 throw error;
             }
-            connection.end();
+            //connection.end();
 
-            resolve(results);
+            resolve({
+                result: results,
+                connection: connection
+            });
         
         });
         });
