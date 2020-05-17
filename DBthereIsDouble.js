@@ -1,7 +1,9 @@
 const sendQuery = require('./DBsendQuery');
 module.exports = (table, columNames, values) => {
     return new Promise(resolve => {
-        sendQuery(`select count(*) from ${table} where ${columNames[0]} = '${values[0]}' and ${columNames[1]} = '${values[1]}';`).then(result => {
+        sendQuery(`select count(*) from ${table} where ${columNames[0]} = ? and ${columNames[1]} = ?;`,
+        [values[0], values[1]]
+        ).then(result => {
 
             if (result.result == false){
                 resolve(0);

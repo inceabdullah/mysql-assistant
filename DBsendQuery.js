@@ -2,7 +2,7 @@
 const mysql   = require('mysql');
 const Creadential = require('./DBcredential.json');
 
-module.exports = (query) => {
+module.exports = (query, queryPlaceHolders) => {
     return new Promise(resolve => {
         const connection = mysql.createConnection(Creadential);
         connection.connect(function(err) {
@@ -16,7 +16,7 @@ module.exports = (query) => {
         
             console.log('Connected');
         
-        return connection.query(query, function (error, results, fields) {
+        return connection.query(query, queryPlaceHolders, function (error, results, fields) {
             if (error){
                 resolve(false);
                 throw error;

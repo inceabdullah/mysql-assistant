@@ -1,7 +1,9 @@
 const sendQuery = require('./DBsendQuery');
 module.exports = (table, columNameKnown, valueKnown, columnWillBeGot) => {
     return new Promise(resolve => {
-        sendQuery(`select ${columnWillBeGot} from ${table} where ${columNameKnown} = '${valueKnown}';`).then(result => {
+        sendQuery(`select ${columnWillBeGot} from ${table} where ${columNameKnown} = ?;`,
+        [valueKnown]
+        ).then(result => {
 
             if (result.result == false){
                 resolve(false);
