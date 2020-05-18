@@ -8,11 +8,20 @@ module.exports = (table, columNameKnown, valueKnown, columnWillBeGot) => {
             if (result.result == false){
                 resolve(false);
             }
-            result.result = JSON.stringify(result.result);
-            result.result = JSON.parse(result.result);
-            result.result = Object.values(result.result[0])[0];
+            if (result.result.length != 0){
+                result.result = JSON.stringify(result.result);
+                result.result = JSON.parse(result.result);
+                result.result = Object.values(result.result[0])[0];             
+
+            } else {
+                result.result = false;
+            }
             result.connection.end();
             resolve(result.result);
+
+            
+            
+            
         });
     });
 
