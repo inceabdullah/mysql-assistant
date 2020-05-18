@@ -12,7 +12,7 @@ module.exports = (table, columNames, values) => {
             result.result = JSON.parse(result.result);
             result.result = Object.values(result.result[0])[0];
             result.connection.end();
-            resolve(result.result);
+            resolve(parseInt(result.result));
         });
     });
 
