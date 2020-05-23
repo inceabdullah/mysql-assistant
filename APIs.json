@@ -1,0 +1,4 @@
+{
+    "cookieValidityEndpoint": "http://localhost:3001/cookieValidity",
+    "tryPasswdValidity": "http://localhost:3001/tryPasswdValidity"
+}
