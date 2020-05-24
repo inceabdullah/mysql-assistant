@@ -2,5 +2,6 @@
     "cookieValidityEndpoint": "http://localhost:3001/cookieValidity",
     "tryPasswdValidity": "http://localhost:3001/tryPasswdValidity",
     "addEditor": "http://localhost:3001/addEditor",
-    "editEditor": "http://localhost:3001/editEditor"
+    "editEditor": "http://localhost:3001/editEditor",
+    "dropEditor": "http://localhost:3001/dropEditor"
 }
