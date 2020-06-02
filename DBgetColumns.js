@@ -1,7 +1,7 @@
 const sendQuery = require('./DBsendQuery');
-module.exports = (table, columNameKnown, valueKnown, column_sWillBeGot) => {
+module.exports = (table, columNameKnown, valueKnown, column_sWillBeGot, QUERY_group_by) => {
     return new Promise(resolve => {
-        sendQuery(`select ${column_sWillBeGot.join(', ')} from ${table} where \`${columNameKnown}\` = ?;`,
+        sendQuery(`select ${column_sWillBeGot.join(', ')} from ${table} where \`${columNameKnown}\` = ?${QUERY_group_by ? (" group by " + QUERY_group_by) : ""};`,
         [valueKnown]
         ).then(result => {
 
