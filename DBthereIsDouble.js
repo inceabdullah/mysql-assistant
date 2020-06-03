@@ -4,6 +4,9 @@ module.exports = (table, columNames, values) => {
         sendQuery(`select count(*) from ${table} where ${columNames[0]} = ? and ${columNames[1]} = ?;`,
         [values[0], values[1]]
         ).then(result => {
+            // console.log("query:");
+            // console.log(`select count(*) from ${table} where ${columNames[0]} = ? and ${columNames[1]} = ?;`);
+            // console.log([values[0], values[1]]);
 
             if (result.result == false){
                 resolve(0);
