@@ -14,7 +14,7 @@ module.exports = (query, queryPlaceHolders) => {
                 });
             }
         
-            console.log('Connected');
+            // console.log('Connected');
         
         return connection.query(query, queryPlaceHolders, function (error, results, fields) {
             if (error){
@@ -22,7 +22,7 @@ module.exports = (query, queryPlaceHolders) => {
                 throw error;
             }
             //connection.end();
-
+            // console.log("results:", results);
             resolve({
                 result: results,
                 connection: connection
