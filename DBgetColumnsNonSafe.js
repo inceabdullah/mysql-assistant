@@ -6,7 +6,7 @@ module.exports = (table, columNameKnown_or_s, valueKnown_or_s, column_sWillBeGot
     return new Promise(resolve => {
         sendQuery(`select ${column_sWillBeGot.join(', ')} from ${table} where ${
             columNameKnown_or_s.map(columnNameItem => {
-                return `\`${columnNameItem}\` = ?`;
+                return `${columnNameItem} = ${valueKnown_or_s[columNameKnown_or_s.indexOf(columnNameItem)]}`;
             }).join(" and ")
         }${QUERY_group_by ? (" group by " + QUERY_group_by) : ""};`,
         Array.isArray(valueKnown_or_s) ? valueKnown_or_s : [valueKnown_or_s]
