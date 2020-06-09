@@ -15,7 +15,7 @@ module.exports = (query, queryPlaceHolders) => {
             }
         
             // console.log('Connected');
-        
+        // console.log("query:", query);
         return connection.query(query, queryPlaceHolders, function (error, results, fields) {
             if (error){
                 resolve(false);
