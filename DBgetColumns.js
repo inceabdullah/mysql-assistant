@@ -1,5 +1,5 @@
 const sendQuery = require('./DBsendQuery');
-module.exports = (table, columNameKnown_or_s, valueKnown_or_s, column_sWillBeGot, QUERY_group_by) => {
+module.exports = (table, columNameKnown_or_s, valueKnown_or_s, column_sWillBeGot, QUERY_group_by, QUERY_order_by) => {
     if (!Array.isArray(columNameKnown_or_s)){
         columNameKnown_or_s = [columNameKnown_or_s];
     }
@@ -8,7 +8,7 @@ module.exports = (table, columNameKnown_or_s, valueKnown_or_s, column_sWillBeGot
             columNameKnown_or_s.map(columnNameItem => {
                 return `\`${columnNameItem}\` = ?`;
             }).join(" and ")
-        }${QUERY_group_by ? (" group by " + QUERY_group_by) : ""};`,
+        }${QUERY_group_by ? (" group by " + QUERY_group_by) : ""}${QUERY_order_by ? (" order by " + QUERY_order_by) : ""};`,
         Array.isArray(valueKnown_or_s) ? valueKnown_or_s : [valueKnown_or_s]
         ).then(result => {
 
