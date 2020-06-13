@@ -1,7 +1,7 @@
 const sendQuery = require('./DBsendQuery');
 module.exports = (table, columNames, values) => {
     return new Promise(resolve => {
-        sendQuery(`insert into ${table} (${columNames.filter((columnName, columnNameIndex) => values[columnNameIndex] != null).join(", ")}) values(${Array(values.length).fill('?').join(', ')});`,
+        sendQuery(`insert into ${table} (${columNames.filter((columnName, columnNameIndex) => values[columnNameIndex] != null).join(", ")}) values(${Array(values.filter(value => value != null).length).fill('?').join(', ')});`,
         values.filter(value => value != null)
         ).then(result => {
 
