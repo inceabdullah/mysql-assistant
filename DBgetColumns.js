@@ -1,15 +1,17 @@
 const sendQuery = require('./DBsendQuery');
-module.exports = (table, columNameKnown_or_s, valueKnown_or_s, column_sWillBeGot, QUERY_group_by, QUERY_order_by) => {
+module.exports = (table, columNameKnown_or_s, valueKnown_or_s, column_sWillBeGot, QUERY_group_by, QUERY_order_by, QUERY_limit) => {
     if (!Array.isArray(columNameKnown_or_s)){
         columNameKnown_or_s = [columNameKnown_or_s];
     }
     return new Promise(resolve => {
         sendQuery(`select ${column_sWillBeGot.join(', ')} from ${table} where ${
-            columNameKnown_or_s.map(columnNameItem => {
+            columNameKnown_or_s.filter((columnName, columnNameIndex) => valueKnown_or_s[columnNameIndex] != null).map(columnNameItem => {
                 return `\`${columnNameItem}\` = ?`;
             }).join(" and ")
-        }${QUERY_group_by ? (" group by " + QUERY_group_by) : ""}${QUERY_order_by ? (" order by " + QUERY_order_by) : ""};`,
-        Array.isArray(valueKnown_or_s) ? valueKnown_or_s : [valueKnown_or_s]
+        }${QUERY_group_by ? (" group by " + QUERY_group_by) : ""}${QUERY_order_by ? (" order by " + QUERY_order_by) : ""}
+        ${QUERY_limit ? (" limit " + QUERY_limit) : ""}
+        ;`,
+        ( Array.isArray(valueKnown_or_s) ? valueKnown_or_s : [valueKnown_or_s] ).filter(value => value != null)
         ).then(result => {
 
             if (result.result == false){
