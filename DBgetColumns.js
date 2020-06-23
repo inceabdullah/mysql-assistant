@@ -4,8 +4,18 @@ module.exports = (table, columNameKnown_or_s, valueKnown_or_s, column_sWillBeGot
         columNameKnown_or_s = [columNameKnown_or_s];
     }
     return new Promise(resolve => {
-        sendQuery(`select ${column_sWillBeGot.join(', ')} from ${table} where ${
+        console.log(`select ${column_sWillBeGot.join(', ')} from ${table} where ${
             columNameKnown_or_s.filter((columnName, columnNameIndex) => valueKnown_or_s[columnNameIndex] != null).map(columnNameItem => {
+                return `\`${columnNameItem}\` = ?`;
+            }).join(" and ")
+        }${QUERY_group_by ? (" group by " + QUERY_group_by) : ""}${QUERY_order_by ? (" order by " + QUERY_order_by) : ""}
+        ${QUERY_limit ? (" limit " + QUERY_limit) : ""}
+        ;`, "columNameKnown_or_s:", columNameKnown_or_s, "valueKnown_or_s:", valueKnown_or_s, "from DBgetColumns");
+
+
+
+        sendQuery(`select ${column_sWillBeGot.join(', ')} from ${table} where ${
+            columNameKnown_or_s.filter((columnName, columnNameIndex) => ( Array.isArray(valueKnown_or_s) ? valueKnown_or_s : [valueKnown_or_s] )[columnNameIndex] != null).map(columnNameItem => {
                 return `\`${columnNameItem}\` = ?`;
             }).join(" and ")
         }${QUERY_group_by ? (" group by " + QUERY_group_by) : ""}${QUERY_order_by ? (" order by " + QUERY_order_by) : ""}

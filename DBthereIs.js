@@ -1,6 +1,7 @@
 const sendQuery = require('./DBsendQuery');
 module.exports = (table, columName, value) => {
     return new Promise(resolve => {
+        // console.log(`select count(*) from ${table} where ${columName} = ?;`, "from DBthereIs");
         sendQuery(`select count(*) from ${table} where ${columName} = ?;`,
         [value]
         ).then(result => {
