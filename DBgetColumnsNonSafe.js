@@ -3,6 +3,11 @@ module.exports = (table, columNameKnown_or_s, valueKnown_or_s, column_sWillBeGot
     if (!Array.isArray(columNameKnown_or_s)){
         columNameKnown_or_s = [columNameKnown_or_s];
     }
+
+    if (!Array.isArray(valueKnown_or_s)){
+        valueKnown_or_s = [valueKnown_or_s];
+    }
+
     return new Promise(resolve => {
         sendQuery(`select ${column_sWillBeGot.join(', ')} from ${table} where ${
             columNameKnown_or_s.map(columnNameItem => {

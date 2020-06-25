@@ -3,7 +3,13 @@ module.exports = (table, columNameKnown_or_s, valueKnown_or_s, column_sWillBeGot
     if (!Array.isArray(columNameKnown_or_s)){
         columNameKnown_or_s = [columNameKnown_or_s];
     }
+
+    if (!Array.isArray(valueKnown_or_s)){
+        valueKnown_or_s = [valueKnown_or_s];
+    }
+
     return new Promise(resolve => {
+        console.log("table, columNameKnown_or_s, valueKnown_or_s, column_sWillBeGot, QUERY_group_by, QUERY_order_by, QUERY_limit", table, columNameKnown_or_s, valueKnown_or_s, column_sWillBeGot, QUERY_group_by, QUERY_order_by, QUERY_limit);
         console.log(`select ${column_sWillBeGot.join(', ')} from ${table} where ${
             columNameKnown_or_s.filter((columnName, columnNameIndex) => valueKnown_or_s[columnNameIndex] != null).map(columnNameItem => {
                 return `\`${columnNameItem}\` = ?`;
