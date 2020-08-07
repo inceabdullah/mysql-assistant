@@ -36,6 +36,7 @@ module.exports = (query, queryPlaceHolders) => {
 
 
         connection.query(query, queryPlaceHolders, function (error, results, fields) {
+            // console.log(query);
             if (error){
                 resolve(false);
                 throw error;
