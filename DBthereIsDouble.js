@@ -10,7 +10,7 @@ module.exports = (table, columNames, values, columNames4Like) => {
         //     x => x + 
         //     ( columNames4Like.includes(x) ? ' like ' : ' = ' ) + '?' ));
         sendQuery(`select count(*) from ${table} where ${columNames.map(
-            x => x + 
+            x => `\`${x}\`` + 
             ( columNames4Like.includes(x) ? ' like ' : ' = ' ) + '?' ).join(' and ')
         };`,
         values.map(
