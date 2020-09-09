@@ -1,5 +1,5 @@
 {
-  "name": "mysql-assistant",
+  "name": "mysql-node-assistant",
   "version": "1.0.0",
   "description": "",
   "main": "index.js",
@@ -8,7 +8,7 @@
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/inceabdullah/mysql-assistant.git"
+    "url": "git+https://github.com/inceabdullah/mysql-node-assistant.git"
   },
   "keywords": [
     "mysql"
@@ -16,9 +16,9 @@
   "author": "Abdullah ince, inceabdullah@yahoo.com",
   "license": "ISC",
   "bugs": {
-    "url": "https://github.com/inceabdullah/mysql-assistant/issues"
+    "url": "https://github.com/inceabdullah/mysql-node-assistant/issues"
   },
-  "homepage": "https://github.com/inceabdullah/mysql-assistant#readme",
+  "homepage": "https://github.com/inceabdullah/mysql-node-assistant#readme",
   "dependencies": {
     "mysql": "^2.18.1"
   }
