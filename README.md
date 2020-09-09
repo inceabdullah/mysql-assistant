@@ -53,3 +53,16 @@ mysqlAssitant.updateNonSafe("table", "known_column_name", "known_value", "column
 Note: Check [test.js](./test.js) for examples.
 
 NonSafe node has not the `\`` symbols around value followed by **where**.
+
+`DBcredential.json` file looks like:
+
+```Javascript
+{
+
+    "host" : "127.0.0.1",
+    "user" : "admin",
+    "database" : "database",
+    "password": "passwd"
+
+}
+```
