@@ -10,11 +10,16 @@
     "type": "git",
     "url": "git+https://github.com/inceabdullah/mysql-assistant.git"
   },
-  "keywords": ["mysql"],
+  "keywords": [
+    "mysql"
+  ],
   "author": "Abdullah ince, inceabdullah@yahoo.com",
   "license": "ISC",
   "bugs": {
     "url": "https://github.com/inceabdullah/mysql-assistant/issues"
   },
-  "homepage": "https://github.com/inceabdullah/mysql-assistant#readme"
+  "homepage": "https://github.com/inceabdullah/mysql-assistant#readme",
+  "dependencies": {
+    "mysql": "^2.18.1"
+  }
 }
