@@ -1,5 +1,8 @@
 ## mysql-assistant
 
+### Installing
+`npm i mysql-node-assistant`
+
 ### Get Column
 ```Javascript
 mysqlAssitant.getColumns("table", ["know_column_name"], ["known_value"], ["column_name_value_is_wanted"]).then(res=> console.log({res}));
@@ -52,7 +55,7 @@ mysqlAssitant.updateNonSafe("table", "known_column_name", "known_value", "column
 
 Note: Check [test.js](./test.js) for examples.
 
-NonSafe node has not the `\`` symbols around value followed by **where**.
+NonSafe node has not the \` symbols around value followed by **where**.
 
 `DBcredential.json` file looks like:
 
