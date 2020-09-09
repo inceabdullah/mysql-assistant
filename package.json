@@ -1,0 +1,20 @@
+{
+  "name": "mysql-assistant",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/inceabdullah/mysql-assistant.git"
+  },
+  "keywords": ["mysql"],
+  "author": "Abdullah ince, inceabdullah@yahoo.com",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/inceabdullah/mysql-assistant/issues"
+  },
+  "homepage": "https://github.com/inceabdullah/mysql-assistant#readme"
+}
