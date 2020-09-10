@@ -1,4 +1,4 @@
-## mysql-assistant
+## mysql-node-assistant
 
 ### Installing
 `npm i mysql-node-assistant`
